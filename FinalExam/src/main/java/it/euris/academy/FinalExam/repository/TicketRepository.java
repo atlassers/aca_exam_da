@@ -5,4 +5,7 @@ import it.euris.academy.FinalExam.data.model.Ticket;
 
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
+  //Boolean applyDiscount();
+  
+  //Double calculateChildrenDiscount();
 }

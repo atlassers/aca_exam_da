@@ -11,44 +11,43 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import it.euris.academy.FinalExam.service.FilmService;
-import it.euris.academy.FinalExam.data.dto.FilmDto;
+import it.euris.academy.FinalExam.data.dto.CinemaDto;
+import it.euris.academy.FinalExam.service.CinemaService;
 
 @RestController
-@RequestMapping("/films")
-public class FilmController {
-  
+@RequestMapping("/cinemas")
+public class CinemaController {
+
   @Autowired
-  FilmService filmService;
+  CinemaService cinemaService;
   
   @GetMapping("/v1")
-  public List<FilmDto> getAll() {
-    return filmService.getAll();
+  public List<CinemaDto> getAll() {
+    return cinemaService.getAll();
   }
   
   @GetMapping("/v1/{id}")
-  public FilmDto getById(@PathVariable("id") Long id) {
-    return filmService.get(id);
+  public CinemaDto getById(@PathVariable("id") Long id) {
+    return cinemaService.get(id);
   }
   
   @DeleteMapping("/v1/{id}")
   public Boolean delete(@PathVariable("id") Long id) {
-    return filmService.delete(id);
+    return cinemaService.delete(id);
   }
   
   @PostMapping("/v1")
-  public FilmDto insert(@RequestBody FilmDto dto) {
-    return filmService.add(dto);
+  public CinemaDto insert(@RequestBody CinemaDto dto) {
+    return cinemaService.add(dto);
   }
   
   @PutMapping("/v1")
-  public FilmDto update(@RequestBody FilmDto dto) {
-    return filmService.update(dto);
+  public CinemaDto update(@RequestBody CinemaDto dto) {
+    return cinemaService.update(dto);
   }
   
   @PatchMapping("/v1")
-  public FilmDto patch(@RequestBody FilmDto dto) {
-    return filmService.update(dto);
+  public CinemaDto patch(@RequestBody CinemaDto dto) {
+    return cinemaService.update(dto);
   }
-
 }

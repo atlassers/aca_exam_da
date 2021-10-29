@@ -20,7 +20,7 @@ spring:
         jdbc:
           time_zone: UTC
   datasource:
-    url: jdbc:mysql://localhost:3306/finalExam?useLegacyDatetimeCode=false
+    url: jdbc:mysql://localhost:3306/final_exam?useLegacyDatetimeCode=false
     username: academy
     password: academy
 ### SECURITY ###

@@ -15,7 +15,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.cors().and().csrf().disable().authorizeRequests()
         .antMatchers("/actuator/*", "/swagger-ui.html**", "/webjars/**", "/v3/**").authenticated()
-        //.antMatchers("/city/**").hasRole("manager")
+        .antMatchers("/cinemas/**").hasRole("manager")
+        .antMatchers("/films/**").hasRole("manager")
+        .antMatchers("/rooms/**").hasRole("manager")
+        .antMatchers("/tickets/**").hasRole("manager")
+        .antMatchers("/viewers/**").hasRole("manager")
         .and()
         .httpBasic();
   }

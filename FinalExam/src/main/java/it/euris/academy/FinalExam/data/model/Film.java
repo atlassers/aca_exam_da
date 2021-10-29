@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import it.euris.academy.FinalExam.data.archetype.Dto;
 import it.euris.academy.FinalExam.data.archetype.Model;
+import it.euris.academy.FinalExam.data.dto.FilmDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -46,9 +47,16 @@ public class Film implements Model {
   private Integer duration;
   
   @Override
-  public Dto toDto() {
-    // TODO Auto-generated method stub
-    return null;
+  public FilmDto toDto() {
+    return FilmDto.builder()
+        .id(id != null ? id.toString() : null)
+        .title(title)
+        .author(author)
+        .producer(producer)
+        .type(type)
+        .minimumAge(minimumAge.toString())
+        .duration(duration.toString())
+        .build();
   }
 
 }

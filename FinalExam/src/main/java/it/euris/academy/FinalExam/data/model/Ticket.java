@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import it.euris.academy.FinalExam.data.archetype.Dto;
 import it.euris.academy.FinalExam.data.archetype.Model;
+import it.euris.academy.FinalExam.data.dto.TicketDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,8 +33,11 @@ public class Ticket implements Model {
   private Double price;
 
   @Override
-  public Dto toDto() {
-    // TODO Auto-generated method stub
-    return null;
+  public TicketDto toDto() {
+    return TicketDto.builder()
+        .id(id != null ? id.toString() : null)
+        .position(position)
+        .price(price.toString())
+        .build();
   }
 }
