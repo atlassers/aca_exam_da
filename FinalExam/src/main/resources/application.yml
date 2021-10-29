@@ -1,0 +1,45 @@
+server:
+  port: 8100
+  servlet:
+    context-path: /final-exam
+
+## Application
+spring:                                                                                                   
+  application:
+    name: final-exam-microservice
+  mvc:
+    throw-exception-if-no-handler-found: true    
+  # Settaggi del database
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties: 
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+  datasource:
+    url: jdbc:mysql://localhost:3306/finalExam?useLegacyDatetimeCode=false
+    username: academy
+    password: academy
+### SECURITY ###
+  security:
+    user:
+      name: academy
+      password: academy
+      roles: manager
+### SECURITY ###
+
+## Actuator api exposed
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+  server:
+    port: 9101
+    base-path: /health
